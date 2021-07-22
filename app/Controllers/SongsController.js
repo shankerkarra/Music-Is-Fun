@@ -4,7 +4,7 @@ import songsService from "../Services/SongsService.js";
 //Private NOTE this is aaron baby 
 /**Draws the Search results to the page */
 /* Shanker Karra */
-function _drawResults() { 
+function _drawResults() {
   const songs = ProxyState.songs
   const activeSong = ProxyState.activeSong || {}
   let template = ""
@@ -29,7 +29,7 @@ export default class SongsController {
   }
 
   /**Takes in the form submission event and sends the query to the service */
-  async search(e) {
+  search(e) {
     //NOTE You dont need to change this method
     e.preventDefault();
     try {
@@ -59,7 +59,7 @@ export default class SongsController {
   async removeSong(id) {
     try {
       await songsService.removeSong(id)
-    } catch (error){
+    } catch (error) {
       console.error("Failed to remove song")
     }
 
