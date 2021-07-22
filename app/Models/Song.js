@@ -50,4 +50,21 @@ export default class Song {
                 </div>
         `;
   }
+
+  get activeSongTemplate() {
+    return `
+                <div class="col-12 m-0">
+                    <div class="card" style="width: 80vh;">
+                        <img class="card-img-top" src="${this.albumArt}" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${this.artist} - ${this.title}</h5>
+                            <p class="card-text">Album: <em>${this.album}</em> | Price: <em>${this.price}</em></p>
+                            <audio controls><source src="${this.preview}"/></audio>
+                            <button type="action" class="btn btn-primary"
+                                onclick="app.songsController.addSong(songId)">Add</a>
+                        </div>
+                    </div>
+                </div>
+    `
+  }
 }

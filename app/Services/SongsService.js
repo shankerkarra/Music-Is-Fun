@@ -27,7 +27,7 @@ class SongsService {
     //TODO What are you going to do with this result
     const res = await sandbox.get()
     console.log(res.data);
-    ProxyState.songs = res.data.map(s => new Song())
+    ProxyState.songs = res.data.map(s => new Song(res.data))
   }
 
   /**
