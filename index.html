@@ -26,22 +26,9 @@
                     <input type="text" class="form-control" name="query" placeholder="Search For Music" />
                     <button class="btn btn-success mt-1 form-control" type="submit">Search</button>
                 </form>
-                <div class="card my-3" style="max-width: 300px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="//placehold.it/100x100" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Artists Name</h5>
-                                <p class="card-text">Song Name</p>
-                                <button type="button" class="btn btn-success"
-                                    onclick="app.songsController.selectSong(songid)">Play Now</button>
-                            </div>
-                        </div>
-                    </div>
+                <div id="all-songs">
+                    <!--All API songs will get put here-->
                 </div>
-
             </div>
             <div class="col-md-5 m-2">
                 <h3 class="text-center">Now Playing</h3>
