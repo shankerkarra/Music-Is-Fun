@@ -62,7 +62,7 @@ class SongsService {
     //   ProxyState.activeSong = null
     // }
   }
+}
 
-
-  const service = new SongsService();
-  export default service;
+const service = new SongsService();
+export default service;
