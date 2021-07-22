@@ -21,28 +21,44 @@
     </header>
     <main class="container-fluid">
         <section class="row">
-            <div class="col-12 bannerStyle">
-                <p>Music is Fun</p>
-            </div>
-            <div class="offset-8 col-4">
+            <div class="col-md-3 mt-5">
                 <form onsubmit="app.songsController.search(event)">
                     <input type="text" class="form-control" name="query" placeholder="Search For Music" />
-                    <button class="btn btn-success mt-1 form-control" type="submit">
-                        Search
-                    </button>
+                    <button class="btn btn-success mt-1 form-control" type="submit">Search</button>
                 </form>
-            </div>
-        </section>
+                <div class="card my-3" style="max-width: 300px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="//placehold.it/100x100" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Artists Name</h5>
+                                <p class="card-text">Song Name</p>
+                                <button type="button" class="btn btn-success"
+                                    onclick="app.songsController.selectSong(songid)">Play Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <section class="row">
-            <div class="col-6">
-                <h3 class="text-center">Search Results</h3>
-                <div id="songs" class="col-12 m-0">
-                    <!-- template to generate -->
+            </div>
+            <div class="col-md-5 m-2">
+                <h3 class="text-center">Now Playing</h3>
+                <div id="active-song" class="col-12 m-0">
+                    <div class="card" style="width: 80vh;">
+                        <img class="card-img-top" src="//placehold.it/300x300" alt="Card image cap">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Arist Name - Song Name</h5>
+                            <p class="card-text">Album: <em>Album Name</em> | Price: <em>0.00</em></p>
+                            <button type="action" class="btn btn-primary"
+                                onclick="app.songsController.addSong(songId)">Add</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <h3 class="text-center">Playlist</h3>
+            <div class="col-md-3">
+                <h3 class="text-center">My Playlist</h3>
                 <div class="col-12 m-0" id="playlist">
                     <!-- template for playlist -->
                 </div>

@@ -25,6 +25,9 @@ class SongsService {
    */
   async getMySongs() {
     //TODO What are you going to do with this result
+    const res = await sandbox.get()
+    console.log(res.data);
+    ProxyState.songs = res.data.map(s => new Song())
   }
 
   /**
@@ -35,17 +38,29 @@ class SongsService {
   async addSong(id) {
     //TODO you only have an id, you will need to find it in the store before you can post it
     //TODO After posting it what should you do?
+
+    const res = await sandbox.post('', ProxyState.activeSong)
+    console.log(res.data);
+
+    const newSong = new Song(res.data)
+    ProxyState.playlist = [...ProxyState.playlist, newSong]
+    ProxyState.activeSong = newSong
+
   }
 
   /**
    * Sends a delete request to the sandbox to remove a song from the playlist
    * Afterwords it will update the store to reflect saved info
-   * @param {string} id
+   * @param {string} id 
    */
   removeSong(id) {
     //TODO Send the id to be deleted from the server then update the store
+    const res = await sandbox.delete(ProxyState.activeSong.id)
+    ProxyState.playlist = ProxyState.playlist.filter(s => s.id != ProxyState.activeSong.id)
+    ProxyState.activeSong = null
   }
 }
+
 
 const service = new SongsService();
 export default service;
