@@ -1,6 +1,6 @@
 import songService from "../Services/SongsService.js";
 
-//Private NOTE this is aaron baby CHRIS CROSS changes
+//Private NOTE this is aaron baby 
 /**Draws the Search results to the page */
 /* Shanker Karra */
 function _drawResults() { }
@@ -29,11 +29,18 @@ export default class SongsController {
    * Takes in a song id and sends it to the service in order to add it to the users playlist
    * @param {string} id
    */
-  addSong(id) { }
+  addSong(id) {
+    try {
+      await songssService.addSong(id)
+    } catch (error) {
+      console.error("unable to add song to the list")
+      console.log("test")
+    }
+  }
 
   /**
-   * Takes in a song id to be removed from the users playlist and sends it to the server
-   * @param {string} id
-   */
+ * Takes in a song id to be removed from the users playlist and sends it to the server
+ * @param {string} id
+ */
   removeSong(id) { }
 }
