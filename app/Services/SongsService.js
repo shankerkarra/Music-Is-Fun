@@ -44,8 +44,7 @@ class SongsService {
 
     const newSong = new Song(res.data)
     ProxyState.playlist = [...ProxyState.playlist, newSong]
-    ProxyState.activeSong = newSpell
-
+    ProxyState.activeSong = newSong
 
   }
 
