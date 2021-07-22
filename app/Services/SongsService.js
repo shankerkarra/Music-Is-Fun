@@ -55,9 +55,9 @@ class SongsService {
    */
   removeSong(id) {
     //TODO Send the id to be deleted from the server then update the store
-    const res = await sandbox.delete(ProxyState.activeSong.id)
-    ProxyState.playlist = ProxyState.playlist.filter(s => s.id != ProxyState.activeSong.id)
-    ProxyState.activeSong = null
+    // const res = await sandbox.delete(ProxyState.activeSong.id)
+    // ProxyState.playlist = ProxyState.playlist.filter(s => s.id != ProxyState.activeSong.id)
+    // ProxyState.activeSong = null
   }
 }
 

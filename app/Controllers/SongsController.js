@@ -31,8 +31,9 @@ export default class SongsController {
   /**Takes in the form submission event and sends the query to the service */
   search(e) {
     //NOTE You dont need to change this method
-    e.preventDefault();
+
     try {
+      e.preventDefault();
       songsService.getMusicByQuery(e.target.query.value);
     } catch (error) {
       console.error(error);
