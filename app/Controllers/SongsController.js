@@ -25,7 +25,7 @@ export default class SongsController {
     //TODO Don't forget to register your listeners and get your data
     ProxyState.on('songs', _drawResults)
     ProxyState.on('playlist', _drawPlaylist)
-    this.search()
+    this.search(e)
   }
 
   /**Takes in the form submission event and sends the query to the service */
