@@ -6,15 +6,13 @@ import songsService from "../Services/SongsService.js";
 /* Shanker Karra */
 function _drawResults() {
   const songs = ProxyState.songs
-  const activeSong = ProxyState.activeSong || {}
+  //const activeSong = ProxyState.activeSong || {}
   let template = ""
-  songs.forEach(s => template += `
-  
-  `)
+  songs.forEach(s => template += s.Template)
   if (!template) {
     template = ''
   }
-  document.getElementById("my-songs").innerHTML = template
+  document.getElementById("all-songs").innerHTML = template
 }
 /**Draws the Users saved songs to the page */
 function _drawPlaylist() { }
@@ -25,7 +23,6 @@ export default class SongsController {
     //TODO Don't forget to register your listeners and get your data
     ProxyState.on('songs', _drawResults)
     ProxyState.on('playlist', _drawPlaylist)
-    this.search(e)
   }
 
   /**Takes in the form submission event and sends the query to the service */
