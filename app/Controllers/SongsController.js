@@ -14,6 +14,14 @@ function _drawResults() {
   }
   document.getElementById("all-songs").innerHTML = template
 }
+
+function _drawSelectSong() {
+  if (!ProxyState.activeSong) {
+    document.getElementById('active-song').innerHTML = '<div class="text-center"><em>No Active Song</em></div>'
+    return
+  }
+  document.getElementById('active-song').innerHTML = ProxyState.activeSong.activeSongTemplate
+}
 /**Draws the Users saved songs to the page */
 function _drawPlaylist() { }
 
@@ -23,6 +31,7 @@ export default class SongsController {
     //TODO Don't forget to register your listeners and get your data
     ProxyState.on('songs', _drawResults)
     ProxyState.on('playlist', _drawPlaylist)
+    ProxyState.on('activeSong', _drawSelectSong)
   }
 
   /**Takes in the form submission event and sends the query to the service */
@@ -59,6 +68,16 @@ export default class SongsController {
     } catch (error) {
       console.error("Failed to remove song")
     }
+  }
+
+  async selectSong(id) {
+    try {
+      songsService.selectSong(id)
+    }
+    catch (error) {
+    }
 
   }
+
 }
+

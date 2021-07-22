@@ -14,7 +14,6 @@ class SongsService {
     $.getJSON(url)
       .then(res => {
         ProxyState.songs = res.results.map(rawData => new Song(rawData));
-        debugger;
       })
       .catch(err => {
         throw new Error(err);
@@ -61,6 +60,10 @@ class SongsService {
     //   ProxyState.playlist = ProxyState.playlist.filter(s => s.id != ProxyState.activeSong.id)
     //   ProxyState.activeSong = null
     // }
+  }
+  selectSong(id) {
+    const res = ProxyState.songs.find(s => s._id === id)
+    ProxyState.activeSong = res
   }
 }
 
