@@ -5,8 +5,18 @@ import songsService from "../Services/SongsService.js";
 //Private NOTE this is aaron baby 
 /**Draws the Search results to the page */
 /* Shanker Karra */
-function _drawResults() { }
-
+function _drawResults() { 
+  const songs = ProxyState.mySongs
+  const activeSong = ProxyState.activeSong || {}
+  let template = ""
+  songs.forEach(s => template += `
+  
+  `)
+  if (!template) {
+    template = ''
+  }
+  document.getElementById("my-songs").innerHTML = template
+}
 /**Draws the Users saved songs to the page */
 function _drawPlaylist() { }
 
@@ -33,7 +43,7 @@ export default class SongsController {
    */
   async addSong(id) {
     try {
-      await mySongssService.addSong(id)
+      await SongsService.addSong(id)
     } catch (error) {
       console.error("unable to add song to the list")
       console.log("test")
@@ -46,7 +56,7 @@ export default class SongsController {
  */
   async removeSong(id) {
     try {
-      await mySongsService.removeSong(id)
+      await SongsService.removeSong(id)
     } catch (error){
       console.error("Failed to remove song")
     }
