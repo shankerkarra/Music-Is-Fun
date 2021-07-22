@@ -25,7 +25,7 @@ class SongsService {
    */
   async getMySongs() {
     //TODO What are you going to do with this result
-    const res = await sandbox.get()
+    const res = await sandBoxApi.get()
     console.log(res.data);
     ProxyState.songs = res.data.map(s => new Song(res.data))
   }
@@ -39,12 +39,12 @@ class SongsService {
     //TODO you only have an id, you will need to find it in the store before you can post it
     //TODO After posting it what should you do?
 
-    const res = await sandbox.post('', ProxyState.activeSong)
+    const res = await sandBoxApi.post('', ProxyState.activeSong)
     console.log(res.data);
 
     const newSong = new Song(res.data)
     ProxyState.playlist = [...ProxyState.playlist, newSong]
-    ProxyState.activeSong = newSong
+    //ProxyState.activesong = newSong
 
   }
 
