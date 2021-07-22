@@ -61,7 +61,7 @@ export default class Song {
                             <p class="card-text">Album: <em>${this.album}</em> | Price: <em>${this.price}</em></p>
                             <audio controls><source src="${this.preview}"/></audio>
                             <button type="action" class="btn btn-primary"
-                                onclick="app.songsController.addSong(songId)">Add</a>
+                                onclick="app.songsController.addSong(${this._id})">Add</a>
                         </div>
                     </div>
                 </div>
