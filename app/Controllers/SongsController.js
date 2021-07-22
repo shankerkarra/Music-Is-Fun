@@ -1,4 +1,6 @@
-import songService from "../Services/SongsService.js";
+import { ProxyState } from "../AppState.js";
+import songsService from "../Services/SongsService.js";
+
 
 //Private NOTE this is aaron baby 
 /**Draws the Search results to the page */
@@ -29,9 +31,9 @@ export default class SongsController {
    * Takes in a song id and sends it to the service in order to add it to the users playlist
    * @param {string} id
    */
-  addSong(id) {
+  async addSong(id) {
     try {
-      await songssService.addSong(id)
+      await mySongssService.addSong(id)
     } catch (error) {
       console.error("unable to add song to the list")
       console.log("test")
@@ -42,5 +44,12 @@ export default class SongsController {
  * Takes in a song id to be removed from the users playlist and sends it to the server
  * @param {string} id
  */
-  removeSong(id) { }
+  async removeSong(id) {
+    try {
+      await mySongsService.removeSong(id)
+    } catch (error){
+      console.error("Failed to remove song")
+    }
+
+   }
 }
